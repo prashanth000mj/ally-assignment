@@ -1,0 +1,9 @@
+.key-result {
+  padding: 1rem 0 1rem 3rem;
+}
+
+.key-result-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
