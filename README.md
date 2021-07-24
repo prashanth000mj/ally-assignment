@@ -1,6 +1,5 @@
-# ally-assignment
-ally interview assignment
---------------------------
+# Ally.io - interview assignment
+
 Follow below commands to get started
 
 1. Load node dependencies 
