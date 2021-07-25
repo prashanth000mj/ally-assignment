@@ -2,6 +2,7 @@ import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined'
 import ArrowRightOutlinedIcon from '@material-ui/icons/ArrowRightOutlined';
 import ArrowDropDownOutlinedIcon from '@material-ui/icons/ArrowDropDownOutlined';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import KeyResult from './KeyResult';
 import './Objective.css';
 
@@ -14,13 +15,19 @@ const svgMarker  = (
 const Objective = ({okr, keyResults, index, selectOKR}) => {
   const [expanded, setExpanded] = useState(true);
 
+  const onKeyResultSelect = (selectedOKR) => {
+    selectOKR({
+      ...selectedOKR,
+      parentObjective: okr.title,
+    });
+  };
   const keyResultElements = keyResults && 
     keyResults.map((keyResult , index) => (
       <KeyResult
         key={keyResult.id}
         index={index}
         okr={keyResult}
-        selectOKR={selectOKR}
+        selectOKR={onKeyResultSelect}
       />
   ));
 
@@ -49,6 +56,23 @@ const Objective = ({okr, keyResults, index, selectOKR}) => {
       {expanded && keyResultElements}
     </>
   );
+};
+
+Objective.propTypes = {
+  okr: PropTypes.shape({
+    title: PropTypes.string,
+  }).isRequired,
+  keyResults: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string,
+  })),
+  index: PropTypes.number,
+  selectOKR: PropTypes.func,
+};
+
+Objective.defaultProps = {
+  keyResults: [],
+  index: 0,
+  selectOKR: () => {},
 };
 
 export default Objective;

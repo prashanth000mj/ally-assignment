@@ -1,4 +1,5 @@
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import PropTypes from 'prop-types';
 import './KeyResult.css';
 
 const svgMarker = (
@@ -26,6 +27,19 @@ const KeyResult = ({okr, index, selectOKR}) => {
       {svgMarker}    
     </div>
   );
+};
+
+KeyResult.propTypes = {
+  okr: PropTypes.shape({
+    title: PropTypes.string
+  }).isRequired,
+  index: PropTypes.number ,
+  selectOKR: PropTypes.func, 
+};
+
+KeyResult.defaultProps = {
+  index: 0,
+  selectOKR: () => {}, 
 };
 
 export default KeyResult;

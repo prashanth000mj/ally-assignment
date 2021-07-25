@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ArrowRightOutlinedIcon from '@material-ui/icons/ArrowRightOutlined';
 import ArrowDropDownOutlinedIcon from '@material-ui/icons/ArrowDropDownOutlined';
+import PropTypes from 'prop-types';
 import './Filters.css';
 import Filter from './Filter';
 
@@ -9,7 +10,7 @@ import Filter from './Filter';
 const Filters = ({filters, selectedFilters, toggleFilter}) => {
   const [expanded , setExpanded] = useState(true);
   return (
-    <React.Fragment key={filters.length}>
+    <>
       {!expanded && 
         <ArrowRightOutlinedIcon 
           fontSize='small' 
@@ -28,8 +29,19 @@ const Filters = ({filters, selectedFilters, toggleFilter}) => {
       {expanded && filters.map(filter => 
         <Filter key={filter} category={filter} toggleFilter={toggleFilter} selected={selectedFilters.has(filter)}/>
       )}
-    </React.Fragment>
+    </>
   );
+};
+
+Filters.propTypes = {
+  filters: PropTypes.arrayOf(PropTypes.string).isRequired,
+  selectedFilters: PropTypes.shape(),
+  toggleFilter: PropTypes.func,
+};
+
+Filters.defaultProps = {
+  selectedFilters: new Set(),
+  toggleFilter: () => {},
 };
 
 export default Filters;

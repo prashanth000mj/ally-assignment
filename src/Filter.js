@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 const style = {
   margin: '5px',
   padding: '5px',
@@ -12,6 +13,17 @@ const Filter = ({category, selected, toggleFilter}) => {
       {category}
     </label>
   );
+};
+
+Filter.propTypes = {
+  category: PropTypes.string.isRequired, 
+  selected: PropTypes.bool, 
+  toggleFilter: PropTypes.func,
+};
+
+Filter.defaultProps = {
+  selected: false, 
+  toggleFilter: () => {},
 };
 
 export default Filter;
