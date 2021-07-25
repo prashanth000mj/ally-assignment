@@ -1,7 +1,6 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import OKRDetails from './OKRDetails';
-import jest, {test, expect} from 'jest';
 
 test('renders OKRDetails Dialog Component', () => {
     const okr={

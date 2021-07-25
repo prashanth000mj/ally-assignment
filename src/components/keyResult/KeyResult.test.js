@@ -1,7 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import React from 'react';
 import KeyResult from './KeyResult';
-import jest, {test, expect} from 'jest';
 
 test('renders KeyResult component', () => {
     const okr = {

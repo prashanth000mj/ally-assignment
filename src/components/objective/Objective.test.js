@@ -1,15 +1,14 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import Objective from './Objective';
-import jest, {afterAll, test, expect} from 'jest';
 
-jest.mock('./KeyResult', () => {
+jest.mock('../keyResult/KeyResult', () => {
     const test = () => <span>test-key-result</span>;
     return test;
 });
 
 afterAll(()=> {
-    jest.unmock('./KeyResult');
+    jest.unmock('../keyResult/KeyResult');
 });
 
 test('renders Objective component', () => {

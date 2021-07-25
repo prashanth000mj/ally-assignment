@@ -1,7 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 import Filter from './Filter';
-import jest, {test, expect} from 'jest';
 
 test('renders filter component', () => {
     render(<Filter category='test-category'/>);
