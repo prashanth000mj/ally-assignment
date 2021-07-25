@@ -85,7 +85,7 @@ test('renders Objectives fetched from API', async () => {
 test('renders error when api fetch fails', async () => {
   global.fetch.mockImplementation(prepareMockErrorImplementation());
   render(<OKRs />);
-  const errorElement = await waitFor(() => screen.getByText(/No data - test-error/));
+  const errorElement = await waitFor(() => screen.getByText(/test-error/));
   expect(errorElement).toBeInTheDocument();
 });
 
