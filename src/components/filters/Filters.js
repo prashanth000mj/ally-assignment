@@ -3,7 +3,7 @@ import ArrowRightOutlinedIcon from '@material-ui/icons/ArrowRightOutlined';
 import ArrowDropDownOutlinedIcon from '@material-ui/icons/ArrowDropDownOutlined';
 import PropTypes from 'prop-types';
 import './Filters.css';
-import Filter from './Filter';
+import Filter from '../filter/Filter';
 
 
 

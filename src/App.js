@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import OKRs from './OKRs';
+import OKRs from './components/okr/OKRs';
 function App() {
   return (
     <div className="App">

@@ -3,7 +3,7 @@ import ArrowRightOutlinedIcon from '@material-ui/icons/ArrowRightOutlined';
 import ArrowDropDownOutlinedIcon from '@material-ui/icons/ArrowDropDownOutlined';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import KeyResult from './KeyResult';
+import KeyResult from '../keyResult/KeyResult';
 import './Objective.css';
 
 const svgMarker  = (

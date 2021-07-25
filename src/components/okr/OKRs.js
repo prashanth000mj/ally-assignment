@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import Objective from './Objective';
-import Filters from './Filters';
-import OKRDetails from './OKRDetails';
+import Objective from '../objective/Objective';
+import Filters from '../filters/Filters';
+import OKRDetails from '../dialog/OKRDetails';
 
 const okrsAPI = 'https://okrcentral.github.io/sample-okrs/db.json';
 const getFiltersAndOkrs = (data) => {
