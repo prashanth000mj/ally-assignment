@@ -1,8 +1,12 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 import Filters from './Filters';
+import jest, {test, expect} from 'jest';
 
-jest.mock('./Filter', () => () => <span>test-filter</span>);
+jest.mock('./Filter', () => {
+    const test = () => <span>test-filter</span>;
+    return test;
+});
 
 test('renders filters component', () => {
     const filters = [];

@@ -1,7 +1,8 @@
+/* eslint-disable no-undef */
 import { fireEvent, render, screen,waitFor } from '@testing-library/react';
 import React from 'react';
 import OKRs from './OKRs';
-
+import jest, {afterAll, test, expect, beforeEach} from 'jest';
 
 const prepareMockImplementation = (data) => {
   return () => 
@@ -52,8 +53,14 @@ const sampleData = [{
   category: 'test-category-2'
 }];
 
-jest.mock('./Objective', () => ({selectOKR}) => <span onClick={selectOKR}>test-Objective</span>);
-jest.mock('./OKRDetails', () => ({onClose}) => <span onClick={onClose}>details-dialog</span>);
+jest.mock('./Objective', () => {
+  const test = ({selectOKR}) => <span onClick={selectOKR}>test-Objective</span>;
+  return test;
+});
+jest.mock('./OKRDetails', () => {
+  const test = ({onClose}) => <span onClick={onClose}>details-dialog</span>;
+  return test;
+});
 
 afterAll(()=> {
     jest.unmock('./Objective');
