@@ -19,17 +19,24 @@ const OKRs = () => {
     'objectives': []
   });
   const [error, setError] = useState();
+
+  const fetchDataFromApi = async () => {
+    try {
+      const response = await fetch(okrsAPI);
+      const {data} = await response.json();
+      setOkrs(groupOKRs(data));
+    } catch (error) {
+      setError(error.message);
+    }
+  }
+
   useEffect(() => {
-    fetch(okrsAPI)
-    .then(response => response.json())
-    .then(({data}) => setOkrs(groupOKRs(data)))
-    .catch(error => {
-      setError(error.message)
-    });
+    fetchDataFromApi();
   }, []);
+
   return (<section>
     <h2>Objectives & Key Results</h2>
-    {
+    { okrs.objectives &&
       okrs.objectives.map((okr, index) => (
         <Objective 
           key={okr.id} 

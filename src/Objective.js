@@ -30,11 +30,13 @@ const Objective = ({title, keyResults, index}) => {
           <ArrowRightOutlinedIcon 
             fontSize='small' 
             className="objective-arrow" 
+            data-testid="expand-icon"
             onClick={() => setExpanded(true)}
           />}
         {expanded && 
           <ArrowDropDownOutlinedIcon 
             fontSize='small' 
+            data-testid="colapse-icon"
             className='objective-arrow'
             onClick={() => setExpanded(false)}
           />}
