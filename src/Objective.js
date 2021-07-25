@@ -12,7 +12,7 @@ const svgMarker  = (
 );
 
 const Objective = ({title, keyResults, index}) => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(true);
 
   const keyResultElements = keyResults && 
     keyResults.map((keyResult , index) => (

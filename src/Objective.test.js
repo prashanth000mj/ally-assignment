@@ -16,7 +16,7 @@ test('renders Objective component', () => {
     expect(indexElement).toBeInTheDocument();
 });
 
-test('should render the key results passed on expansion', () => {
+test('should render the key results passed by default', () => {
     const title = 'test-title';
     const keyResults = [{
         id: 'test-id-1',
@@ -26,8 +26,6 @@ test('should render the key results passed on expansion', () => {
         title: 'test-title-2',
     }];
     render(<Objective title={title} index={1} keyResults={keyResults}/>);
-    const expandIcon = screen.getByTestId('expand-icon');
-    fireEvent.click(expandIcon);
     const keyResultElements = screen.getAllByText(/test-key-result/);
     expect(keyResultElements.length).toBe(keyResults.length);
 });
@@ -35,11 +33,14 @@ test('should render the key results passed on expansion', () => {
 test('should colapse the key results on colapsing', () => {
     const title = 'test-title';
     render(<Objective title={title} index={1}/>);
+    
+    const colapseIcon = screen.getByTestId('colapse-icon');
+    fireEvent.click(colapseIcon);
+    expect(colapseIcon).not.toBeInTheDocument();
+
     const expandIcon = screen.getByTestId('expand-icon');
     fireEvent.click(expandIcon);
     expect(expandIcon).not.toBeInTheDocument();
 
-    const colapseIcon = screen.getByTestId('colapse-icon');
-    fireEvent.click(colapseIcon);
-    expect(colapseIcon).not.toBeInTheDocument();
+    
 });
