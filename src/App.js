@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import OKRs from './components/okr/OKRs';
+
 function App() {
   return (
     <div className="App">
@@ -9,7 +10,7 @@ function App() {
       </header>
       <OKRs />
     </div>
-  ); 
+  );
 }
 
 export default App;

@@ -8,7 +8,7 @@ Follow below commands to get started
 2. Start the app 
 #### `yarn start`
 
-3. Open [http://localhost:3000](http://localhost:3000) to view the assignment in the browser.
+3. Open [http://localhost:3000/ally-assignment](http://localhost:3000/ally-assignment) to view the assignment in the browser.
 
 4. Test the app componets
 #### `yarn test`

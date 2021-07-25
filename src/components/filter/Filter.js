@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 const style = {
   margin: '5px',
   padding: '5px',
@@ -7,24 +8,22 @@ const style = {
   borderRadius: '3px',
   display: 'inline-block',
   cursor: 'pointer',
-}
-
-const Filter = ({category, selected, toggleFilter}) => {
-  return (
-    <label style={style} onClick={() => toggleFilter(category)} className={selected ? 'filter-selected' : ''}>
-      {category}
-    </label>
-  );
 };
 
+const Filter = ({ category, selected, toggleFilter }) => (
+  <label style={style} onClick={() => toggleFilter(category)} className={selected ? 'filter-selected' : ''}>
+    {category}
+  </label>
+);
+
 Filter.propTypes = {
-  category: PropTypes.string.isRequired, 
-  selected: PropTypes.bool, 
+  category: PropTypes.string.isRequired,
+  selected: PropTypes.bool,
   toggleFilter: PropTypes.func,
 };
 
 Filter.defaultProps = {
-  selected: false, 
+  selected: false,
   toggleFilter: () => {},
 };
 

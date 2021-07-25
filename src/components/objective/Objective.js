@@ -7,13 +7,15 @@ import KeyResult from '../keyResult/KeyResult';
 import './Objective.css';
 
 // svg lines for tree kind marking
-const svgMarker  = (
-  <svg height="35%" className='objective-expansion-marker'>
-    <line x1="1.87rem" y1="0" x2="1.87rem" y2="100%" className='marker'></line>
+const svgMarker = (
+  <svg height="35%" className="objective-expansion-marker">
+    <line x1="1.87rem" y1="0" x2="1.87rem" y2="100%" className="marker" />
   </svg>
 );
 
-const Objective = ({okr, keyResults, index, selectOKR}) => {
+const Objective = ({
+  okr, keyResults, index, selectOKR,
+}) => {
   const [expanded, setExpanded] = useState(true);
 
   const onKeyResultSelect = (selectedOKR) => {
@@ -22,36 +24,49 @@ const Objective = ({okr, keyResults, index, selectOKR}) => {
       parentObjective: okr.title,
     });
   };
-  const keyResultElements = keyResults && 
-    keyResults.map((keyResult , index) => (
+  const keyResultElements = keyResults
+    && keyResults.map((keyResult, keyIndex) => (
       <KeyResult
         key={keyResult.id}
-        index={index}
+        index={keyIndex}
         okr={keyResult}
         selectOKR={onKeyResultSelect}
       />
-  ));
+    ));
 
   return (
     <>
-      <div className='objective okr-item title-wrap'>
-        {!expanded && 
-          <ArrowRightOutlinedIcon 
-            fontSize='small' 
-            className="objective-arrow" 
+      <div className="objective okr-item title-wrap">
+        {!expanded
+          && (
+          <ArrowRightOutlinedIcon
+            fontSize="small"
+            className="objective-arrow"
             data-testid="expand-icon"
             onClick={() => setExpanded(true)}
-          />}
-        {expanded && 
-          <ArrowDropDownOutlinedIcon 
-            fontSize='small' 
+          />
+          )}
+        {expanded
+          && (
+          <ArrowDropDownOutlinedIcon
+            fontSize="small"
             data-testid="colapse-icon"
-            className='objective-arrow'
+            className="objective-arrow"
             onClick={() => setExpanded(false)}
-          />}
-        <AccountCircleOutlinedIcon fontSize='small' color='disabled'/>&emsp;
-        <span className="okr-title" title={okr.title} onClick={() => selectOKR(okr)}>
-          {index}.&nbsp;&nbsp;{okr.title}</span>
+          />
+          )}
+        <AccountCircleOutlinedIcon fontSize="small" color="disabled" />
+          &emsp;
+        <span
+          className="okr-title"
+          title={okr.title}
+          onClick={() => selectOKR(okr)}
+        >
+          {index}
+          .&nbsp;&nbsp;
+          {okr.title}
+
+        </span>
         {expanded && keyResults && svgMarker}
       </div>
       {expanded && keyResultElements}
