@@ -1,4 +1,5 @@
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './KeyResult.css';
 

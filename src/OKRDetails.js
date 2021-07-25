@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Dialog, DialogTitle, DialogActions, Button, DialogContent
 } from '@material-ui/core';
@@ -33,6 +34,7 @@ OKRDetails.propTypes = {
     metric_name: PropTypes.string,
     metric_start: PropTypes.string,
     metric_end: PropTypes.string,
+    parentObjective: PropTypes.string,
   }).isRequired,
   onClose: PropTypes.func,
 };

@@ -1,4 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import React from 'react';
 import Filters from './Filters';
 
 jest.mock('./Filter', () => () => <span>test-filter</span>);

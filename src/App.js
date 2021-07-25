@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import OKRs from './OKRs';
 function App() {
@@ -8,7 +9,7 @@ function App() {
       </header>
       <OKRs />
     </div>
-  );
+  ); 
 }
 
 export default App;

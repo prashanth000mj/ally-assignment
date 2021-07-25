@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 const style = {
   margin: '5px',
