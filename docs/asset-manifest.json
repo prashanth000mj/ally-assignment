@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/ally-assignment/static/css/main.8dfcedba.chunk.css",
+    "main.js": "/ally-assignment/static/js/main.89b6902e.chunk.js",
+    "main.js.map": "/ally-assignment/static/js/main.89b6902e.chunk.js.map",
+    "runtime-main.js": "/ally-assignment/static/js/runtime-main.84d285ea.js",
+    "runtime-main.js.map": "/ally-assignment/static/js/runtime-main.84d285ea.js.map",
+    "static/js/2.4806dd91.chunk.js": "/ally-assignment/static/js/2.4806dd91.chunk.js",
+    "static/js/2.4806dd91.chunk.js.map": "/ally-assignment/static/js/2.4806dd91.chunk.js.map",
+    "index.html": "/ally-assignment/index.html",
+    "static/css/main.8dfcedba.chunk.css.map": "/ally-assignment/static/css/main.8dfcedba.chunk.css.map",
+    "static/js/2.4806dd91.chunk.js.LICENSE.txt": "/ally-assignment/static/js/2.4806dd91.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.84d285ea.js",
+    "static/js/2.4806dd91.chunk.js",
+    "static/css/main.8dfcedba.chunk.css",
+    "static/js/main.89b6902e.chunk.js"
+  ]
+}
