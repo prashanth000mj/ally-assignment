@@ -1,23 +1,23 @@
 import React from 'react';
-import {
-  Dialog, DialogTitle, DialogActions, Button, DialogContent,
-} from '@material-ui/core';
 import PropTypes from 'prop-types';
+import './OKRDetails.css';
 
 const OKRDetails = ({ okr, onClose }) => (
-  <Dialog open onClose={onClose} aria-labelledby="customized-dialog-title">
-    <DialogTitle id="customized-dialog-title" onClose={onClose}>
-      {okr.parentObjective ? 'Key Result' : 'Objective'}
-    </DialogTitle>
-    <DialogContent dividers>
+  <div id="okr-details" onClick={onClose}>
+    <section id="okr-details-dialog" onClick={(event) => event.stopPropagation()}>
+      <header>
+        <b>{okr.parentObjective ? 'Key Result' : 'Objective'}</b>
+      </header>
+      <hr />
       <div>
-        <b>Title</b>
-        {' '}
-        :
-        {' '}
-        <i>{okr.title}</i>
-      </div>
-      {okr.parentObjective && (
+        <div>
+          <b>Title</b>
+          {' '}
+          :
+          {' '}
+          <i>{okr.title}</i>
+        </div>
+        {okr.parentObjective && (
         <div>
           <b>Objective</b>
           {' '}
@@ -25,42 +25,42 @@ const OKRDetails = ({ okr, onClose }) => (
           {' '}
           <i>{okr.parentObjective}</i>
         </div>
-      ) }
-      <div>
-        <b>Category</b>
-        {' '}
-        :
-        {' '}
-        <i>{okr.category}</i>
+        ) }
+        <div>
+          <b>Category</b>
+          {' '}
+          :
+          {' '}
+          <i>{okr.category}</i>
+        </div>
+        <div>
+          <b>Metric Name</b>
+          {' '}
+          :
+          {' '}
+          <i>{okr.metric_name}</i>
+        </div>
+        <div>
+          <b>Metric Start</b>
+          {' '}
+          :
+          {' '}
+          <i>{okr.metric_start}</i>
+        </div>
+        <div>
+          <b>Metric End</b>
+          {' '}
+          :
+          {' '}
+          <i>{okr.metric_end}</i>
+        </div>
       </div>
-      <div>
-        <b>Metric Name</b>
-        {' '}
-        :
-        {' '}
-        <i>{okr.metric_name}</i>
-      </div>
-      <div>
-        <b>Metric Start</b>
-        {' '}
-        :
-        {' '}
-        <i>{okr.metric_start}</i>
-      </div>
-      <div>
-        <b>Metric End</b>
-        {' '}
-        :
-        {' '}
-        <i>{okr.metric_end}</i>
-      </div>
-    </DialogContent>
-    <DialogActions>
-      <Button onClick={onClose}>
-        Close
-      </Button>
-    </DialogActions>
-  </Dialog>
+      <hr />
+      <footer>
+        <input type="button" onClick={onClose} value="Close" />
+      </footer>
+    </section>
+  </div>
 );
 
 OKRDetails.propTypes = {
