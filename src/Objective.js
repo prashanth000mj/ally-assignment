@@ -11,7 +11,7 @@ const svgMarker  = (
   </svg>
 );
 
-const Objective = ({title, keyResults, index}) => {
+const Objective = ({okr, keyResults, index, selectOKR}) => {
   const [expanded, setExpanded] = useState(true);
 
   const keyResultElements = keyResults && 
@@ -19,7 +19,8 @@ const Objective = ({title, keyResults, index}) => {
       <KeyResult
         key={keyResult.id}
         index={index}
-        title={keyResult.title}
+        okr={keyResult}
+        selectOKR={selectOKR}
       />
   ));
 
@@ -41,7 +42,8 @@ const Objective = ({title, keyResults, index}) => {
             onClick={() => setExpanded(false)}
           />}
         <AccountCircleOutlinedIcon fontSize='small' color='disabled'/>&emsp;
-        <span className="okr-title" title={title}>{index}.&nbsp;&nbsp;{title}</span>
+        <span className="okr-title" title={okr.title} onClick={() => selectOKR(okr)}>
+          {index}.&nbsp;&nbsp;{okr.title}</span>
         {expanded && keyResults && svgMarker}
       </div>
       {expanded && keyResultElements}
