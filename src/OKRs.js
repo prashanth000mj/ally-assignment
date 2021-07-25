@@ -1,30 +1,37 @@
 import {useEffect, useState} from 'react';
-import Objective  from './Objective';
+import Objective from './Objective';
+import Filters from './Filters';
 
 const okrsAPI = 'https://okrcentral.github.io/sample-okrs/db.json';
-const groupOKRs = (data) => {
+const getFiltersAndOkrs = (data) => {
   const okrs = {};
+  const filters = new Set();
   data.forEach(okr => {
+    filters.add(okr.category);
     const parent = okr.parent_objective_id === '' ? 'objectives' : okr.parent_objective_id;
     if(!(parent in okrs)){
       okrs[parent] = [];
     }
     okrs[parent].push(okr);
   });
-  return okrs;
+  return [okrs, Array.from(filters)];
 };
 
 const OKRs = () => {
   const [okrs, setOkrs] = useState({
     'objectives': []
   });
+  const [filters, setFilters] = useState([]);
+  const [selectedFilters, setSelectedFilters] = useState(new Set());
   const [error, setError] = useState();
 
   const fetchDataFromApi = async () => {
     try {
       const response = await fetch(okrsAPI);
       const {data} = await response.json();
-      setOkrs(groupOKRs(data));
+      const [okrsFromAPI, filtersFromAPI] = getFiltersAndOkrs(data);
+      setOkrs(okrsFromAPI);
+      setFilters(filtersFromAPI);
     } catch (error) {
       setError(error.message);
     }
@@ -34,22 +41,37 @@ const OKRs = () => {
     fetchDataFromApi();
   }, []);
 
+  const toggleFilter = (filter) => {
+    const newSelectedFilters = new Set(selectedFilters);
+    if(newSelectedFilters.has(filter)){
+      newSelectedFilters.delete(filter);
+    }else{
+      newSelectedFilters.add(filter);
+    }
+    setSelectedFilters(newSelectedFilters);
+  };
+
+  const getFilteredObjectives = () => {
+    let objectives = okrs.objectives;
+    if(selectedFilters.size > 0){
+      objectives = objectives.filter(okr => selectedFilters.has(okr.category));
+    }
+    return objectives.map((okr, index) => (
+      <Objective 
+        key={okr.id} 
+        keyResults={okrs[okr.id]}
+        title={okr.title}
+        index={index + 1}
+        category={okr.category}
+      />
+    ))
+  };
+
   return (<section>
-    <h2>Objectives & Key Results</h2>
-    { okrs.objectives &&
-      okrs.objectives.map((okr, index) => (
-        <Objective 
-          key={okr.id} 
-          keyResults={okrs[okr.id]}
-          title={okr.title}
-          index={index + 1} 
-        />
-      ))
-    }
-    {
-      error &&
-      <i>No data - {error}</i>
-    }
+    <h3>Objectives & Key Results</h3>
+    {filters && <Filters filters={filters} toggleFilter={toggleFilter} selectedFilters={selectedFilters}/>}
+    { okrs.objectives &&  getFilteredObjectives() }
+    { error && <i>No data - {error}</i> }
   </section>);
 }
 

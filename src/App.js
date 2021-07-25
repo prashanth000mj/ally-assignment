@@ -4,7 +4,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Ally.io Assignment</h1>
+        <h2>Ally.io Assignment</h2>
       </header>
       <OKRs />
     </div>

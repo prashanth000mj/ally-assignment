@@ -4,7 +4,7 @@
   flex-direction: column; 
   color: black;
   min-height: 100vh;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 .okr-item {

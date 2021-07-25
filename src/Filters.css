@@ -1,0 +1,14 @@
+#filters-title{
+    display: inline-block;
+    vertical-align: super;
+    cursor: pointer;
+}
+
+.filter-arrow {
+    cursor: pointer;
+}
+
+.filter-selected {
+    color: white;
+    background-color: black;
+}
