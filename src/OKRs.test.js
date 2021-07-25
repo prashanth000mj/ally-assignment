@@ -28,10 +28,12 @@ const sampleData = [{
   id: 'test-id-2',
   title: 'test-title-2',
   parent_objective_id: 'test-id-1',
+  category: 'test-category-1'
 },{
   id: 'test-id-3',
   title: 'test-title-3',
   parent_objective_id: 'test-id-1',
+  category: 'test-category-1'
 },{
   id: 'test-id-4',
   title: 'test-title-4',
@@ -41,10 +43,12 @@ const sampleData = [{
   id: 'test-id-5',
   title: 'test-title-5',
   parent_objective_id: 'test-id-4',
+  category: 'test-category-2'
 },{
   id: 'test-id-6',
   title: 'test-title-6',
   parent_objective_id: 'test-id-4',
+  category: 'test-category-2'
 }];
 
 jest.mock('./Objective', () => ({selectOKR}) => <span onClick={selectOKR}>test-Objective</span>);

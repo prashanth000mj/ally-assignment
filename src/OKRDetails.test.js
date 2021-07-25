@@ -4,6 +4,7 @@ import OKRDetails from './OKRDetails';
 test('renders OKRDetails Dialog Component', () => {
     const okr={
         title: 'test-title',
+        parentObjective: 'Test-Parent'
     }
     render(<OKRDetails okr={okr}/>);
     const titleElement = screen.getByText(/test-title/);
@@ -11,9 +12,9 @@ test('renders OKRDetails Dialog Component', () => {
 });
 
 test('should call onClose when diog is closed', () => {
-    const okr={
+    const okr= {
         title: 'test-title',
-    }
+    };
     const onClose = jest.fn();
     render(<OKRDetails okr={okr} onClose={onClose}/>);
     const closeElement = screen.getByText(/Close/);
