@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import KeyResult from '../keyResult/KeyResult';
 import './Objective.css';
 
+// svg lines for tree kind marking
 const svgMarker  = (
   <svg height="35%" className='objective-expansion-marker'>
     <line x1="1.87rem" y1="0" x2="1.87rem" y2="100%" className='marker'></line>

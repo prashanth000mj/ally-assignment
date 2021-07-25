@@ -4,7 +4,10 @@ import Objective from '../objective/Objective';
 import Filters from '../filters/Filters';
 import OKRDetails from '../dialog/OKRDetails';
 
+// data api can be moved o endpoints constant file
 const okrsAPI = 'https://okrcentral.github.io/sample-okrs/db.json';
+
+// okrs grouping amd filter are exraced from api response
 const getFiltersAndOkrs = (data) => {
   const okrs = {};
   const filters = new Set();
@@ -29,6 +32,7 @@ const OKRs = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
 
+  // data api call
   const fetchDataFromApi = async () => {
     try {
       setLoading(true);

@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './KeyResult.css';
 
+// svg lines for tree kind marking
 const svgMarker = (
   <svg height='100%' width='5rem' className='key-result-marker'>
     <line x1='1.87rem' y1='0' x2='1.87rem' y2='100%' className='marker'></line>
@@ -10,10 +11,12 @@ const svgMarker = (
   </svg>
 );
 
+// for alphabets indexing
 const charCodeStart = 97;
 const alphabetsCount = 26;
 
 const KeyResult = ({okr, index, selectOKR}) => {
+  // calculating the index fro key result. It goes as a,b,...z,1a,1b,...1z,2a,...
   const charCode = charCodeStart + (index % alphabetsCount);
   const prefixNumber = Math.floor(index/alphabetsCount);
   const indexCharacter = `${prefixNumber > 0 ? prefixNumber : ''}${String.fromCharCode(charCode)}`;
