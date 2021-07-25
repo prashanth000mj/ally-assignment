@@ -5,6 +5,7 @@ const style = {
   border: '1px solid lightgray',
   borderRadius: '3px',
   display: 'inline-block',
+  cursor: 'pointer',
 }
 
 const Filter = ({category, selected, toggleFilter}) => {
